@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include "dungeonRoomList_large.txt"
-#include "tools.c"
 
 //Open a file sent via command line
 //Be able to make a room
@@ -20,36 +18,43 @@
 // how can we print the info for all rooms
 
 
-// typedef struct{
-//     char name[100];
-//     char code[3];
-//     char explan[100];
 
-//     char theRoom = Room(malloc(sizeof(char)*100));
+typedef struct{
+    char name[100];
+    char code[3];
+    char explan[100];
 
-
-// } Room;
+} Room;
 
 // void printRoom(Room *fp);
 
+
+
+
+
 int main(){
-    FILE *fp = fopen("dungeonRoomList_large.txt", "r")
+    
+    Room *theRoom = malloc(sizeof(Room));
+
+    FILE *fp = fopen("dungeonRoomList_large.txt", "r");
+    if (fp == NULL){
+        printf("Failed to open file.");
+        return 1;
+    }
     char sep[] = ":";
     char buffer[1024];
     
-    while(fgets(buffer,sizeof(buffer), fp){
+    while(fgets(buffer, sizeof(buffer), fp)){
         if (isspace(buffer[0])){
             printf("continuing\n");
             continue;
-        
-        else:
-            printf("failed")
-
         }
+        else{
+            printf("failed\n");
         char *tp = strtok(buffer, sep);
         printf("|%s|\n", tp);
-    
+        }  
     }
-    return 0;
-
-}
+        fclose(fp);
+        free(theRoom);
+        return 0;}   

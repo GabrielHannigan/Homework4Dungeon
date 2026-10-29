@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include "tools.h"
-#include "dungeonRoomList_large.txt"
-
 
 roomOpen(){
     

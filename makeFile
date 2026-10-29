@@ -1,0 +1,5 @@
+homework4.c: main.o tools.o
+
+main.o: main.c tools.h
+	gcc main.o tools.o
+	
