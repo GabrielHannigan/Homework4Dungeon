@@ -1,12 +1,21 @@
-#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 #include "tools.h"
 
-roomOpen(){
-    
-    *fp("dungeonRoomList_large.txt");
-    fopen(fp);
-    fgets(fp);
-    printf(fp);
-    fclose(fp);
-    
+void trim(char *str){
+    int i =0, j = 0;
+    while(str[i] && isspace((unsigned char)str[i])){
+        i++;
+    }
+    while (str[i]){
+        str[j++] = str[i++];
+    }
+    str[j] = '\0';
+    j--;
+    while(j >= 0 && isspace((unsigned char)str[i])){
+        str[j] = '\0';
+        j--;
+    }
+
 }
+
